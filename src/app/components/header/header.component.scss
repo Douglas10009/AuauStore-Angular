@@ -1,0 +1,40 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .tp-links {
+    display: flex;
+    gap: 10%;
+    width: 30%;
+    // background-color: red;
+
+    a {
+      padding: 9px 15px;
+      background-color: #dfccf2;
+      color: #ffffff;
+      text-decoration: none;
+      border-radius: 9px;
+      transition: 1000ms;
+    }
+
+    a:hover {
+      transition: 1000ms;
+      padding: 10px 50px;
+      transform: translateY(-0px);
+      background-color: white;
+      color: #dfccf2;
+      border: solid 2px #6aa6f9;
+    }
+  }
+
+
+
+  @media (max-width: 668px) {
+    .topbar {
+      visibility: hidden;
+      display: none;
+    }
+  }
+
+}

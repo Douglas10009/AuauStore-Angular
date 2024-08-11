@@ -1,0 +1,31 @@
+
+.conteiner {
+	padding: 0px 20px;
+	height: 95%;
+	flex-direction: column;
+	justify-content: center;
+
+  .main-conteiner {
+    padding: 0 0 5px;
+    justify-content: space-around;
+    align-items: center;
+
+    .main-titulo{
+      flex-direction: column;
+      font-family: 'Roboto', sans-serif;
+
+      #main-opcao {
+        font-weight: bold;
+        font-size: 66px;
+      }
+
+      #main-cachorro{
+        font-size: 32px;
+        font-weight: lighter;
+      }
+    }
+  }
+}
+
+.flex { display: flex; }
+
