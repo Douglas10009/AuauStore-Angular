@@ -1,0 +1,12 @@
+{
+    "products": [
+        {
+            "id": 1,
+            "title": "Ração",
+            "description": "Ração para cachorro",
+            "price": 10.00,
+            "srcImage": "./assets/products/racao.png",
+            "altImage": "Ração para cachorro"
+        }
+    ]
+}
