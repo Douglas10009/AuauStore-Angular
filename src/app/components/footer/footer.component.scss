@@ -3,8 +3,7 @@
   justify-content: space-between;
   align-items: center;
   background-color: #251b3a;
-  padding: 20px;
-  height: 150px;
+  padding: 20px 40px;
 
   .button-group {
     display: flex;
@@ -19,6 +18,11 @@
       margin: 10px 0;
       cursor: pointer;
       font-size: 18px;
+      transition: background-color 0.3s ease; /* Transição para o hover */
+
+      &:hover {
+        background-color: #a08bb2; /* Cor ao passar o mouse */
+      }
     }
   }
 
@@ -35,6 +39,11 @@
       padding: 20px 40px;
       font-size: 24px;
       cursor: pointer;
+      transition: background-color 0.3s ease; 
+
+      &:hover {
+        background-color: #c4b3ca;
+      }
     }
   }
 }
