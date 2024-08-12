@@ -32,9 +32,13 @@
 
 .produto-conteiner {
 	flex-direction: column;
+
 	height: 50em;
+  // width: 95vw;
+
   // Cansei de tentar faze isso pelo jeito certo
 	background-image: url(./bbc_prod.png);
+
   background-size: cover;
 	justify-content: space-around;
 	padding: 20px 0;
