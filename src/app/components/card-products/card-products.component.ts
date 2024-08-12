@@ -27,14 +27,14 @@ export class CardProductsComponent {
   //   this.cardProductsService
   // }
 
-  products: any[] = [];
+  // products: any[] = [];
 
-  httpClient = inject(HttpClient)
-  ngOnInit(){
-    this.httpClient.get<any>('/products').subscribe((products)=> {
-      this.products = products
-    })
-  }
+  // httpClient = inject(HttpClient)
+  // ngOnInit(){
+  //   this.httpClient.get<any>('/products').subscribe((products)=> {
+  //     this.products = products
+  //   })
+  // }
 
 
 }

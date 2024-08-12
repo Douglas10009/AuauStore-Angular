@@ -1,0 +1,46 @@
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #251b3a;
+  padding: 20px;
+  height: 150px;
+
+  .button-group {
+    display: flex;
+    flex-direction: column;
+
+    button {
+      background-color: #8d7b9a;
+      color: white;
+      border: none;
+      border-radius: 15px;
+      padding: 15px 30px;
+      margin: 10px 0;
+      cursor: pointer;
+      font-size: 18px;
+    }
+  }
+
+  .store-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    button {
+      background-color: #b0a1b8;
+      color: #2b1b47;
+      border: none;
+      border-radius: 15px;
+      padding: 20px 40px;
+      font-size: 24px;
+      cursor: pointer;
+    }
+  }
+}
+
+.copyright {
+  text-align: center;
+  color: white;
+  margin-top: 20px;
+}

@@ -4,6 +4,8 @@
 
 
 <!-- Principal -->
+<!-- seta para baixo -->
+
 <section class="conteiner flex">
 
   <div class="main-conteiner flex">
@@ -21,11 +23,17 @@
 </section>
 
 <!-- Produtos -->
-<section class="produto-conteiner">
+<section class="produto-conteiner flex">
   <h1>O melhor para seu amigo !!!</h1>
 
-  <div class="produtos-grid">
-    <app-card-products ></app-card-products>
+  <div class="produtos-grid flex">
+    <app-card-products
+      title="Ração para cachorrão"
+      description="ração para o seu cachorrão"
+      [price]=10
+      srcImage="./assets/products/racao.png"
+      AltImage="Ração para seu cachorrão"
+    ></app-card-products>
   </div>
 </section>
 
@@ -135,13 +143,8 @@
   </div>
 </section> -->
 
-<!-- NavBar -->
-<!-- Div cachorro e texto -->
-<!-- cachorro -->
-<!-- Texto -->
-<!-- seta para baixo -->
 
 <!-- QUEM SOMOS -->
 
 <!-- RODAPÉ -->
-
+<app-footer/>

@@ -4,34 +4,34 @@ img {
 }
 
 .produtos {
-background-color: #FFFCED;
-color: #1C1C1C;
-width: 242px;
-height: 342px;
-border-radius: 10%;
-padding: 10px;
+  background-color: #fffced;
+  color: #1c1c1c;
+  width: 242px;
+  height: 342px;
+  border-radius: 10%;
+  padding: 10px;
   margin: 10px;
-  display:flex;
-flex-direction: column;
+  display: flex;
+  flex-direction: column;
   justify-content: space-around;
-align-items: center;
-transition: 1s;
+  align-items: center;
+  transition: 1s;
 
-  box-shadow: 8px 9px 42px -14px rgba(0,0,0,0.78);
-  -webkit-box-shadow: 8px 9px 42px -14px rgba(0,0,0,0.78);
-  -moz-box-shadow: 8px 9px 42px -14px rgba(0,0,0,0.78);
+  box-shadow: 8px 9px 42px -14px rgba(0, 0, 0, 0.78);
+  -webkit-box-shadow: 8px 9px 42px -14px rgba(0, 0, 0, 0.78);
+  -moz-box-shadow: 8px 9px 42px -14px rgba(0, 0, 0, 0.78);
 }
 
 .produtos:hover {
-transform: scale(1.04);
-transition: 1s;
+  transform: scale(1.04);
+  transition: 1s;
 }
 
-.produtos h1{
+.produtos h1 {
   font-size: 22px;
 }
 
-.produtos p{
+.produtos p {
   color: #646363;
 }
 

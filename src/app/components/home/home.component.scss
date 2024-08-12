@@ -1,3 +1,5 @@
+.flex { display: flex; }
+
 
 .conteiner {
 	padding: 0px 20px;
@@ -27,5 +29,30 @@
   }
 }
 
-.flex { display: flex; }
+
+.produto-conteiner {
+	flex-direction: column;
+	height: 50em;
+  // Cansei de tentar faze isso pelo jeito certo
+	background-image: url(./bbc_prod.png);
+  background-size: cover;
+	justify-content: space-around;
+	padding: 20px 0;
+	color: #000;
+
+  h1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-shadow: -2px 1px 5px #b7527a;
+    height: 90px;
+    font-size: 40px;
+  }
+
+  .produtos-grid {
+    justify-content: space-around;
+    align-items: center;
+  }
+}
+
 
