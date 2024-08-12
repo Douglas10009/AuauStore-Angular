@@ -39,7 +39,7 @@
       padding: 20px 40px;
       font-size: 24px;
       cursor: pointer;
-      transition: background-color 0.3s ease; 
+      transition: background-color 0.3s ease;
 
       &:hover {
         background-color: #c4b3ca;
@@ -51,5 +51,5 @@
 .copyright {
   text-align: center;
   color: white;
-  margin-top: 20px;
+  margin-top: -20px;
 }
