@@ -7,6 +7,38 @@
             "price": 10.00,
             "srcImage": "./assets/products/racao.png",
             "altImage": "Ração para cachorro"
+        },
+        {
+            "id": 2,
+            "title": "Areia para Gato",
+            "description": "Areia higiênica para gatos",
+            "price": 15.00,
+            "srcImage": "./assets/products/racao-pedigree.png",
+            "altImage": "Areia higiênica para gatos"
+        },
+        {
+            "id": 3,
+            "title": "Brinquedo para Cachorro",
+            "description": "Brinquedo resistente para cachorro",
+            "price": 20.00,
+            "srcImage": "./assets/products/racao-filhotes.png",
+            "altImage": "Brinquedo resistente para cachorro"
+        },
+        {
+            "id": 4,
+            "title": "Cama para Gato",
+            "description": "Cama confortável para gatos",
+            "price": 30.00,
+            "srcImage": "./assets/products/tapete_higienico.png",
+            "altImage": "Cama confortável para gatos"
+        },
+        {
+            "id": 5,
+            "title": "Coleira para Cachorro",
+            "description": "Coleira ajustável para cachorro",
+            "price": 25.00,
+            "srcImage": "./assets/products/racao.png",
+            "altImage": "Coleira ajustável para cachorro"
         }
     ]
 }
