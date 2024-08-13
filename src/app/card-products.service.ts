@@ -10,6 +10,8 @@ export class CardProductsService {
 
   constructor(private http:HttpClient) { }
 
+ 
+
   // async getAllProducts(): Promise<any[]> {
   //   const data = await fetch(this.apiUrl);
   //   return await data.json() ?? [];
