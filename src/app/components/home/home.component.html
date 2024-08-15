@@ -1,6 +1,5 @@
-
 <!-- Header -->
-<app-header/>
+<app-header />
 
 
 <!-- Principal -->
@@ -26,15 +25,13 @@
 <section class="produto-conteiner flex">
   <h1>O melhor para seu amigo !!!</h1>
 
+  @for(item of produtosCaninos; track $index){
   <div class="produtos-grid flex">
-    <app-card-products
-      title="Ração para cachorrão"
-      description="ração para o seu cachorrão"
-      [price]=10
-      srcImage="./assets/products/racao.png"
-      AltImage="Ração para seu cachorrão"
-    ></app-card-products>
+    <app-card-products [produtoCanino]=item></app-card-products>
   </div>
+  }
+
+
 </section>
 
 <!-- <section class="produto-conteiner">
@@ -147,4 +144,4 @@
 <!-- QUEM SOMOS -->
 
 <!-- RODAPÉ -->
-<app-footer/>
+<app-footer />
