@@ -1,97 +1,10 @@
-// * {
-//   margin: 0;
-//   padding: 0;
-//   box-sizing: border-box;
-//   background-color: rgb(238, 230, 255);
-// }
-
-
-
-img {
-  width: 500px;
-  height: 500px;
-}
-
-.card {
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  width: 650px;
-  margin: 20px;
-
-  /* Centralização */
-  // position: absolute;
-  // top: 50%;
-  // left: 50%;
-  // transform: translate(-50%, -50%);
-
-  display: flex;
-  align-items: baseline;
-  flex-direction: column;
-
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-
-}
-
-.user-info {
+.grid-posts {
   display: flex;
   align-items: center;
-  padding: 14px;
-  border-bottom: 1px solid #eee;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
-
-.user-photo {
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  margin-right: 12px;
-}
-
-.user-name {
-  font-weight: bold;
-  font-size: 16px;
-}
-
-.post-image img {
-  width: 100%;
-  display: block;
-}
-
-.post-actions {
-  display: flex;
-  align-items: center;
-  padding: 8px 14px;
-}
-
-.post-actions span {
-  cursor: pointer;
-  font-size: 24px;
-  margin-right: 10px;
-}
-
-.likes-count {
-  padding: 0 14px;
-  font-weight: bold;
-  margin-bottom: 8px;
-}
-
-.comments-section {
-  padding: 0 14px 14px 14px;
-  display: block;
-}
-
-.comments-section input {
-  width: 100%;
-  padding: 10px;
-  border-radius: 20px;
-  border: 1px solid #ddd;
-  margin-top: 10px;
-}
-
-.comment {
-  margin-bottom: 5px;
-}
-
-.comment strong {
-  margin-right: 5px;
+li{
+  list-style-type: none;
 }
