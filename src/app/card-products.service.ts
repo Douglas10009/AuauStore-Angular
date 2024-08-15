@@ -10,9 +10,12 @@ import { ProdutosCaninos } from '../IprodutosCaninos';
 export class CardProductsService {
   apiUrl = 'http://localhost:3000/products';
 
+
   constructor(private http: HttpClient) { }
   getProducts():Observable<ProdutosCaninos[]> {
     return this.http.get<ProdutosCaninos[]>(this.apiUrl);
   }
+
+ 
 }
 
