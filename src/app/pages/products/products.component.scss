@@ -1,0 +1,12 @@
+h1{
+    text-align: center;
+}
+
+.card-conteiner {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+
+    height: 100vh;
+}

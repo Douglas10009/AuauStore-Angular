@@ -1,5 +1,11 @@
-<app-header/>
+<app-header />
 
-<app-card-products></app-card-products>
+<h1>Produtos</h1>
 
-<app-footer/>
+<div class="card-conteiner">
+    @for(item of produtosCaninos; track $index){
+        <app-card-products [produtoCanino]="item"></app-card-products>
+    }
+</div>
+
+<app-footer />
