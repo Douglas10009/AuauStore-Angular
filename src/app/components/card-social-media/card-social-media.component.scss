@@ -1,0 +1,86 @@
+// img {
+//   width: 500px;
+//   height: 500px;
+// }
+
+.card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  width: 300px;
+  margin: 20px;
+
+  display: flex;
+  align-items: baseline;
+  flex-direction: column;
+
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  padding: 14px;
+  border-bottom: 1px solid #eee;
+}
+
+.user-photo {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  margin-right: 12px;
+}
+
+.user-name {
+  font-weight: bold;
+  font-size: 16px;
+}
+.post-image{
+  width: 100%;
+  height: 40%;
+
+  img {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+}
+
+.post-actions {
+  display: flex;
+  align-items: center;
+  padding: 8px 14px;
+}
+
+.post-actions span {
+  cursor: pointer;
+  font-size: 24px;
+  margin-right: 10px;
+}
+
+.likes-count {
+  padding: 0 14px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.comments-section {
+  padding: 0 14px 14px 14px;
+  display: block;
+}
+
+.comments-section input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 20px;
+  border: 1px solid #ddd;
+  margin-top: 10px;
+}
+
+.comment {
+  margin-bottom: 5px;
+}
+
+.comment strong {
+  margin-right: 5px;
+}
