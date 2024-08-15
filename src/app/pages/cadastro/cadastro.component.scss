@@ -3,15 +3,14 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: 'Rubik', sans-serif;
+    font-family: 'Rubik', sans-serif; 
+    
   }
-  
-  
-  
+
   /* Container principal */
   .container {
-    
-    width: 100%;
+    margin-top: 10%;
+    width: 500px;  
     padding: 40px 20px;
     background-color: #fff;
     border-radius: 8px;
@@ -51,7 +50,7 @@
   .form-label {
     display: block;
     /* margin-top: 40px; */
-    padding-left: 5px; /* Adiciona padding ao título */
+    padding-bottom: 10px; /* Adiciona padding ao título */
     font-size: 14px;
     color: #555;
   }
@@ -89,7 +88,7 @@
     font-size: 18px;
     font-weight: bold;
     color: #fff;
-    background-color: #dd8cc7;
+    background-color: #b95fa1;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -100,7 +99,7 @@
   }
   
   .botao:hover {
-    background-color: #f02fc0;
+    background-color: #3e7b5c;
     transform: translateY(-3px);
   }
   
@@ -109,25 +108,64 @@
     font-size: 14px;
   }
   
-  /* Estilização do link de recuperação de senha */
-  .forgot {
-    display: block;
-    margin-top: 20px;
-    font-size: 14px;
-    color: #4d61fc;
-    text-decoration: none;
-    transition: color 0.3s;
-  }
-  
-  .forgot:hover {
-    color: #2036de;
-  }
-  
+ 
   img{
-    width: 150px;
+    width: 120px;
   }
-  
-  
-  
 
 
+  .social-login {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.social-login p {
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #666;
+}
+
+.social-button {
+     
+    
+    width: 100%;
+    max-width: 200px;
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+    text-align: center;
+    border: none;
+    transition: background-color 0.3s ease;
+    
+}
+.social-button{
+  margin-left: 20px;
+}
+
+.social-button i {
+    margin-right: 8px;
+}
+
+.facebook {
+    background-color: #3b5998;
+}
+
+.facebook:hover {
+    background-color: #2d4373;
+}
+
+
+.google {
+    background-color: #db4437;
+}
+
+.google:hover {
+    background-color: #c33d2d;
+}
+
+  
+  
+  
