@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { HeaderComponent } from '../header/header.component';
-import { CardProductsComponent } from '../card-products/card-products.component';
-import { FooterComponent } from "../footer/footer.component";
+import { HeaderComponent } from '../../components/header/header.component';
+import { CardProductsComponent } from '../../components/card-products/card-products.component';
+import { FooterComponent } from "../../components/footer/footer.component";
 import { CardProductsService } from '../../card-products.service';
 import { ProdutosCaninos } from '../../../IprodutosCaninos';
 import { CommonModule } from '@angular/common';
