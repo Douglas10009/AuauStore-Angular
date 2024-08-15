@@ -25,11 +25,11 @@
 <section class="produto-conteiner flex">
   <h1>O melhor para seu amigo !!!</h1>
 
-  @for(item of produtosCaninos; track $index){
-  <div class="produtos-grid flex">
-    <app-card-products [produtoCanino]=item></app-card-products>
+  <div class="card-conteiner">
+    @for(item of produtosCaninos; track $index){
+      <app-card-products [produtoCanino]=item></app-card-products>
+    }
   </div>
-  }
 
 
 </section>

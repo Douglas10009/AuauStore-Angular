@@ -53,9 +53,12 @@
     font-size: 40px;
   }
 
-  .produtos-grid {
-    justify-content: space-around;
+
+  .card-conteiner {
+    display: flex;
+    justify-content: space-evenly;
     align-items: center;
+    flex-wrap: wrap;
   }
 }
 
