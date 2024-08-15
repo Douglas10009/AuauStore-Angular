@@ -12,10 +12,17 @@
     margin-top: 10%;
     width: 500px;  
     padding: 40px 20px;
+    margin: 2rem auto;
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
     text-align: center;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    // width: 90vw;
   }
   
   /* Estilização do ícone e título */

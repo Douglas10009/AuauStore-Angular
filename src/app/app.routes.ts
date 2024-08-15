@@ -20,6 +20,10 @@ export const routes: Routes = [
     component: LoginComponent
   },
   {
+    path: 'cadastro',
+    component: CadastroComponent
+  },
+  {
     path: 'redes-sociais',
     component: SocialMediasComponent
   },
