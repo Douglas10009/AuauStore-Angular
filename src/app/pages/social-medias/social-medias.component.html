@@ -1,0 +1,30 @@
+<app-header/>
+
+<div class="card">
+  <div class="user-info">
+    <img src="./assets/drougas.jpg" alt="User Photo" class="user-photo" />
+    <span class="user-name">DrouguinhasRD</span>
+  </div>
+
+  <div class="post-image">
+    <img src="./assets/husky.jpg" alt="Post Image" />
+  </div>
+
+  <div class="post-actions">
+    <span class="like-btn" onclick="likePost()">🤍</span>
+    <span class="comment-btn" onclick="toggleComments()">🗨️</span>
+  </div>
+
+  <div class="likes-count">
+    <span>1,234 curtidas</span>
+  </div>
+
+  <div class="comments-section" id="comments">
+    <div class="comment"><strong>usuario1</strong> Comentário de exemplo 1</div>
+    <div class="comment"><strong>usuario2</strong> Comentário de exemplo 2</div>
+    <input type="text" placeholder="Adicione um comentário..." />
+  </div>
+
+</div>
+
+<app-footer/>

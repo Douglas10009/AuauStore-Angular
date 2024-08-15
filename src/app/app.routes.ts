@@ -3,6 +3,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { ProductsComponent } from './pages/products/products.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { LoginComponent } from './pages/login/login.component';
+import { SocialMediasComponent } from './pages/social-medias/social-medias.component';
 
 export const routes: Routes = [
   {
@@ -10,12 +11,16 @@ export const routes: Routes = [
     component: HomeComponent
   },
   {
-    path: 'products',
+    path: 'produtos',
     component: ProductsComponent
   },
   {
     path: 'login',
     component: LoginComponent
+  },
+  {
+    path: 'redes-sociais',
+    component: SocialMediasComponent
   },
   {
     path: '**',
