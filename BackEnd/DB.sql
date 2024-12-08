@@ -1,6 +1,7 @@
-Create schema if not exists AuauFollow;
+Create schema if not exists AuauStore;
 
-use Auaufollow;
+use AuauStore;
+
 
 create table if not exists Produtos(
 	idProduto int primary key auto_increment,
@@ -8,7 +9,7 @@ create table if not exists Produtos(
     descricao varchar(1000),
     preco decimal(10,2),
     srcImage varchar(2000),
-    altImage varchar(2000),
+    altImage varchar(2000)
 );
 
 create table if not exists Clientes(
@@ -63,8 +64,6 @@ create table if not exists login(
     
     foreign key (fk_cliente) references clientes(idCliente)
 );
-
-Aqui está a inserção em SQL para preencher as tabelas com 10 entradas cada:  
 
 
 -- Inserindo na tabela Produtos
