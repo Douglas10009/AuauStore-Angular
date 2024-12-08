@@ -1,8 +1,8 @@
 export interface ProdutosCaninos {
-  id: number;
-  title:string;
-  description: string;
-  price: number;
+  idProduto: number;
+  titulo:string;
+  descricao: string;
+  preco: number;
   srcImage: string;
   altImage: string;
 }
