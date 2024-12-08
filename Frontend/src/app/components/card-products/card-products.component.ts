@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 
-import { ProdutosCaninos } from '../../../IprodutosCaninos';
-import { CardProductsService } from '../../card-products.service';
+import { ProdutosCaninos } from '../../interface/IprodutosCaninos';
+import { CardProductsService } from '../../services/card-products.service';
 import { CommonModule } from '@angular/common';
 
 @Component({

@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { HeaderComponent } from "../../components/header/header.component";
 import { FooterComponent } from "../../components/footer/footer.component";
 import { CardProductsComponent } from "../../components/card-products/card-products.component";
-import { ProdutosCaninos } from '../../../IprodutosCaninos';
-import { CardProductsService } from '../../card-products.service';
+import { ProdutosCaninos } from '../../interface/IprodutosCaninos';
+import { CardProductsService } from '../../services/card-products.service';
 import { CommonModule } from '@angular/common';
 
 @Component({
