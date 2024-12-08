@@ -8,7 +8,7 @@ import { ProdutosCaninos } from '../IprodutosCaninos';
   providedIn: 'root'
 })
 export class CardProductsService {
-  apiUrl = 'http://localhost:3000/products';
+  apiUrl = 'http://localhost:3000/produtos';
 
 
   constructor(private http: HttpClient) { }
