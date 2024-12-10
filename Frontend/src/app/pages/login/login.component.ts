@@ -2,6 +2,7 @@ import { Component, input, Input } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { Cliente } from '../../interface/Icliente';
 import { ClientService } from '../../services/cliente.service';
+import { NgModel } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -16,28 +17,22 @@ export class LoginComponent {
 
     // --------------------------
     // CÓDIGO REUTILIZADO DO home.component.html
-    Clientes!: Cliente[]
+    // Clientes!: Cliente[]
 
-    constructor (private clienteService:ClientService) {}
+    // constructor (private clienteService:ClientService) {}
   
-    ngOnInit(){
-      this.clienteService.getProducts().subscribe((clientes) => {
-        this.Clientes = clientes
-      })
-    }
+    // ngOnInit(){
+    //   this.clienteService.getProducts().subscribe((clientes) => {
+    //     this.Clientes = clientes
+    //   })
+    // }
 
     // --------------------------
 
-    ngOnChange(){
-        alert('hola');
-        if (this.localNome == 'a') {
-            alert("hola")
-        }
-
-    }
-
-    ngOnSubmit(){
-        alert("Submit");
+    login() {
+        console.log("Hola");
+        
+        alert("Login feito")
     }
 
     
