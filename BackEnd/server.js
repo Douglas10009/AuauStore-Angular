@@ -4,11 +4,13 @@ const express = require("express");
 const { body, validationResult } = require('express-validator');
 const connection = require("./db");
 const path = require('path');
+const cors = require("cors")
 
 const app = express();
 
 // Middleware para o express entender o body
 app.use(express.json());
+app.use(cors()); //Middleware para headers
 
 
 // Rotas
