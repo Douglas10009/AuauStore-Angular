@@ -1,4 +1,9 @@
-// Falta modularizar o banco de dados, services
+/*
+TODO -- 
+
+- Falta modularizar as querys do banco de dados 
+- services 
+*/
 
 const express = require("express");
 const { body, validationResult } = require('express-validator');
