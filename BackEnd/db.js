@@ -4,7 +4,7 @@ const mysql = require('mysql2');
 const connection = mysql.createConnection({
   host: 'localhost', // O servidor onde o MySQL está rodando
   user: 'root',      // Usuário do MySQL (o padrão é 'root')
-  password: '1234',      // Senha do MySQL (deixe em branco se não houver senha)
+  password: process.env.SENHADB,      // Senha do MySQL (deixe em branco se não houver senha)
   database: 'AuauStore'  // O nome do banco de dados que criamos
 });
 
