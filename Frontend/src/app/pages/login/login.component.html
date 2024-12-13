@@ -11,12 +11,12 @@
                 <div class="form">
                     <div class="form-row">
                         <label for="input">Usuário</label>
-                        <input type="text" placeholder="Digite seu nome" ngModel required/>
+                        <input type="text" placeholder="Digite seu nome" ngModel (value)="localNome" required/>
                     </div>
 
                     <div class="form-row">
                         <label for="input">Senha</label>
-                        <input type="text" placeholder="Digite sua senha" ngModel required/>
+                        <input type="text" placeholder="Digite sua senha" ngModel (value)="localSenha" required/>
                     </div>
 
                     <div class="form-row bottom">
