@@ -1,3 +1,19 @@
+
+
+
+
+
+
+--  FALTA OS MENINOS CONSERTAREM OS INSERTS DAS TABELAS (menos produtos)
+
+
+
+
+
+
+
+DROP schema auaufollow;
+
 -- MySQL Workbench Forward Engineering
 
 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
@@ -420,6 +436,7 @@ CREATE TABLE IF NOT EXISTS `auaufollow`.`produtos` (
   `descricao` VARCHAR(1000) NULL DEFAULT NULL,
   `preco` DECIMAL(10,2) NULL DEFAULT NULL,
   `srcImage` VARCHAR(2000) NULL DEFAULT NULL,
+  `altImage` VARCHAR(2000) NULL DEFAULT NULL,
   PRIMARY KEY (`idProdutos`))
 ENGINE = InnoDB
 AUTO_INCREMENT = 3
@@ -449,3 +466,23 @@ COLLATE = utf8mb4_0900_ai_ci;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+
+
+-- INSERINDO DADOS
+
+
+-- Inserindo na tabela Produtos
+INSERT INTO Produtos (nome, descricao, preco, srcImage, altImage) VALUES
+('Ração Premium', 'Ração para cães adultos.', 75.50, '/images/racao1.png', 'Ração em pacote.'),
+('Brinquedo Bola', 'Bola resistente para cães.', 25.00, '/images/bola.png', 'Bola para cães.'),
+('Shampoo Canino', 'Shampoo para pelos brilhantes.', 35.90, '/images/shampoo.png', 'Frasco de shampoo.'),
+('Guia Retrátil', 'Guia de passeio com trava.', 50.00, '/images/guia.png', 'Guia retrátil para cães.'),
+('Casinha de Plástico', 'Casinha para cães pequenos.', 150.00, '/images/casinha.png', 'Casinha confortável.'),
+('Osso de Nylon', 'Brinquedo de mastigação durável.', 20.00, '/images/osso.png', 'Osso sintético para mastigar.'),
+('Coleira Antipulgas', 'Coleira eficaz contra pulgas e carrapatos.', 45.00, '/images/coleira.png', 'Coleira antipulgas.'),
+('Comedouro Inteligente', 'Comedouro com dispensador automático.', 120.00, '/images/comedouro.png', 'Comedouro automático.'),
+('Tapete Higiênico', 'Tapete descartável para cães.', 30.00, '/images/tapete.png', 'Tapete absorvente.'),
+('Cama Ortopédica', 'Cama confortável para cães idosos.', 200.00, '/images/cama.png', 'Cama macia para cães.');
+
+-- Inserindo na tabela Clientes
