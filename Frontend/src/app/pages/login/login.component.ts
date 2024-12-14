@@ -3,11 +3,12 @@ import { RouterLink } from '@angular/router';
 import { Cliente } from '../../interface/Icliente';
 import { ClientService } from '../../services/cliente.service';
 import { NgModel } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink, CommonModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
