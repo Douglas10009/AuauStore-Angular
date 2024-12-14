@@ -5,6 +5,7 @@
 
 
 --  FALTA OS MENINOS CONSERTAREM OS INSERTS DAS TABELAS (menos produtos)
+-- Trocar o nome do DB de auaufollow para auaustore
 
 
 
