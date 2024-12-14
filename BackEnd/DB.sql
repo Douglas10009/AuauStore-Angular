@@ -1,158 +1,506 @@
-Create schema if not exists AuauStore;
-
-use AuauStore;
 
 
-create table if not exists Produtos(
-	idProduto int primary key auto_increment,
-	nome varchar(50),
-    descricao varchar(1000),
-    preco decimal(10,2),
-    srcImage varchar(2000),
-    altImage varchar(2000)
-);
 
-create table if not exists Clientes(
-	idCliente int primary key auto_increment,
-	nome varchar(50),
-    idade integer
-);
 
-create table if not exists Cachorros(
-	idCachorro int primary key auto_increment,
-    nome varchar(50), 
-    idade integer,
-    raca varchar(100),
-    genero varchar(10),
-    fk_cliente int,
-    foreign key(fk_cliente) references Clientes(idCliente)
-);
 
-create table if not exists Postagens(
-	idPostagem int primary key auto_increment,
-    srcImage varchar(2000),
-    descricao varchar(2000),
-    qntCurtidas int,
-    fk_cliente int,
-    
-    foreign key (fk_cliente) references clientes(idCliente)
-);
 
-create table if not exists comentarios(
-	idComentario int primary key auto_increment,
-    mensagem varchar(900), 
-    dataPostada datetime,
-    fk_postagem int,
-    fk_cliente int,
-    
-    foreign key (fk_cliente) references clientes(idCliente),
-    foreign key (fk_postagem) references postagens(idPostagem)
-);
+--  FALTA OS MENINOS CONSERTAREM OS INSERTS DAS TABELAS (menos produtos)
+-- Trocar o nome do DB de auaufollow para auaustore
 
-create table if not exists carteirinha(
-	nomeVeterinario varchar(200),
-    vacinas varchar(400),
-    fk_cachorro int,
-    
-    foreign key (fk_cachorro) references cachorros(idCachorro)
-);
 
-create table if not exists login(
-	email varchar(100),
-    senha varchar(100),
-    fk_cliente int,
-    
-    foreign key (fk_cliente) references clientes(idCliente)
-);
+
+
+
+
+
+DROP schema auaufollow;
+
+-- MySQL Workbench Forward Engineering
+
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
+
+-- -----------------------------------------------------
+-- Schema mydb
+-- -----------------------------------------------------
+-- -----------------------------------------------------
+-- Schema auaufollow
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- Schema auaufollow
+-- -----------------------------------------------------
+CREATE SCHEMA IF NOT EXISTS `auaufollow` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci ;
+USE `auaufollow` ;
+
+-- -----------------------------------------------------
+-- Table `auaufollow`.`clientes`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `auaufollow`.`clientes` (
+  `idCliente` INT(11) NOT NULL AUTO_INCREMENT,
+  `nome` VARCHAR(50) NULL DEFAULT NULL,
+  `idade` INT(11) NULL DEFAULT NULL,
+  PRIMARY KEY (`idCliente`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 3
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
+-- Table `auaufollow`.`cachorrosadocao`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `auaufollow`.`cachorrosadocao` (
+  `idCachorroAdocao` INT(11) NOT NULL AUTO_INCREMENT,
+  `nome` VARCHAR(50) NULL DEFAULT NULL,
+  `raca` VARCHAR(100) NULL DEFAULT NULL,
+  `idade` INT(11) NULL DEFAULT NULL,
+  `descricao` TEXT NULL DEFAULT NULL,
+  `adotado` TINYINT(1) NULL DEFAULT '0',
+  PRIMARY KEY (`idCachorroAdocao`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 3
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
+-- Table `auaufollow`.`adocoes`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `auaufollow`.`adocoes` (
+  `idAdocao` INT(11) NOT NULL AUTO_INCREMENT,
+  `idCliente` INT(11) NULL DEFAULT NULL,
+  `idCachorroAdocao` INT(11) NULL DEFAULT NULL,
+  `dataAdocao` DATETIME NULL DEFAULT NULL,
+  PRIMARY KEY (`idAdocao`),
+  INDEX `idCliente` (`idCliente` ASC) VISIBLE,
+  INDEX `idCachorroAdocao` (`idCachorroAdocao` ASC) VISIBLE,
+  CONSTRAINT `adocoes_ibfk_1`
+    FOREIGN KEY (`idCliente`)
+    REFERENCES `auaufollow`.`clientes` (`idCliente`),
+  CONSTRAINT `adocoes_ibfk_2`
+    FOREIGN KEY (`idCachorroAdocao`)
+    REFERENCES `auaufollow`.`cachorrosadocao` (`idCachorroAdocao`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
+-- Table `auaufollow`.`amizades`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `auaufollow`.`amizades` (
+  `idAmizade` INT(11) NOT NULL AUTO_INCREMENT,
+  `idCliente1` INT(11) NULL DEFAULT NULL,
+  `idCliente2` INT(11) NULL DEFAULT NULL,
+  `status` VARCHAR(20) NULL DEFAULT NULL,
+  PRIMARY KEY (`idAmizade`),
+  INDEX `idCliente1` (`idCliente1` ASC) VISIBLE,
+  INDEX `idCliente2` (`idCliente2` ASC) VISIBLE,
+  CONSTRAINT `amizades_ibfk_1`
+    FOREIGN KEY (`idCliente1`)
+    REFERENCES `auaufollow`.`clientes` (`idCliente`),
+  CONSTRAINT `amizades_ibfk_2`
+    FOREIGN KEY (`idCliente2`)
+    REFERENCES `auaufollow`.`clientes` (`idCliente`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
+-- Table `auaufollow`.`racas`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `auaufollow`.`racas` (
+  `idRaca` INT(11) NOT NULL AUTO_INCREMENT,
+  `nome` VARCHAR(100) NULL DEFAULT NULL,
+  `origem` VARCHAR(100) NULL DEFAULT NULL,
+  `tamanho` VARCHAR(50) NULL DEFAULT NULL,
+  `expectativaVida` INT(11) NULL DEFAULT NULL,
+  `nivelAtividade` VARCHAR(50) NULL DEFAULT NULL,
+  `descricao` TEXT NULL DEFAULT NULL,
+  PRIMARY KEY (`idRaca`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 3
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
+-- Table `auaufollow`.`cachorros`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `auaufollow`.`cachorros` (
+  `idCachorro` INT(11) NOT NULL AUTO_INCREMENT,
+  `nome` VARCHAR(50) NULL DEFAULT NULL,
+  `idade` INT(11) NULL DEFAULT NULL,
+  `fk_raca` INT(11) NULL DEFAULT NULL,
+  `genero` VARCHAR(10) NULL DEFAULT NULL,
+  `fk_cliente` INT(11) NULL DEFAULT NULL,
+  PRIMARY KEY (`idCachorro`),
+  INDEX `fk_cliente` (`fk_cliente` ASC) VISIBLE,
+  INDEX `fk_raca` (`fk_raca` ASC) VISIBLE,
+  CONSTRAINT `cachorros_ibfk_1`
+    FOREIGN KEY (`fk_cliente`)
+    REFERENCES `auaufollow`.`clientes` (`idCliente`),
+  CONSTRAINT `cachorros_ibfk_2`
+    FOREIGN KEY (`fk_raca`)
+    REFERENCES `auaufollow`.`racas` (`idRaca`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 3
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
+-- Table `auaufollow`.`caracteristicassaude`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `auaufollow`.`caracteristicassaude` (
+  `idCaracteristica` INT(11) NOT NULL AUTO_INCREMENT,
+  `idRaca` INT(11) NULL DEFAULT NULL,
+  `problemaSaude` VARCHAR(200) NULL DEFAULT NULL,
+  `descricao` TEXT NULL DEFAULT NULL,
+  PRIMARY KEY (`idCaracteristica`),
+  INDEX `idRaca` (`idRaca` ASC) VISIBLE,
+  CONSTRAINT `caracteristicassaude_ibfk_1`
+    FOREIGN KEY (`idRaca`)
+    REFERENCES `auaufollow`.`racas` (`idRaca`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
+-- Table `auaufollow`.`carteirinha`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `auaufollow`.`carteirinha` (
+  `idCarteirinha` INT(11) NOT NULL AUTO_INCREMENT,
+  `nomeVeterinario` VARCHAR(200) NULL DEFAULT NULL,
+  `vacinas` TEXT NULL DEFAULT NULL,
+  `fk_cachorro` INT(11) NULL DEFAULT NULL,
+  PRIMARY KEY (`idCarteirinha`),
+  INDEX `fk_cachorro` (`fk_cachorro` ASC) VISIBLE,
+  CONSTRAINT `carteirinha_ibfk_1`
+    FOREIGN KEY (`fk_cachorro`)
+    REFERENCES `auaufollow`.`cachorros` (`idCachorro`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
+-- Table `auaufollow`.`categoriasprodutos`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `auaufollow`.`categoriasprodutos` (
+  `idCategoria` INT(11) NOT NULL AUTO_INCREMENT,
+  `nome` VARCHAR(50) NULL DEFAULT NULL,
+  PRIMARY KEY (`idCategoria`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 3
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
+-- Table `auaufollow`.`eventos`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `auaufollow`.`eventos` (
+  `idEvento` INT(11) NOT NULL AUTO_INCREMENT,
+  `nome` VARCHAR(100) NULL DEFAULT NULL,
+  `descricao` TEXT NULL DEFAULT NULL,
+  `dataInicio` DATETIME NULL DEFAULT NULL,
+  `dataFim` DATETIME NULL DEFAULT NULL,
+  PRIMARY KEY (`idEvento`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
+-- Table `auaufollow`.`clienteseventos`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `auaufollow`.`clienteseventos` (
+  `idCliente` INT(11) NOT NULL,
+  `idEvento` INT(11) NOT NULL,
+  PRIMARY KEY (`idCliente`, `idEvento`),
+  INDEX `idEvento` (`idEvento` ASC) VISIBLE,
+  CONSTRAINT `clienteseventos_ibfk_1`
+    FOREIGN KEY (`idCliente`)
+    REFERENCES `auaufollow`.`clientes` (`idCliente`),
+  CONSTRAINT `clienteseventos_ibfk_2`
+    FOREIGN KEY (`idEvento`)
+    REFERENCES `auaufollow`.`eventos` (`idEvento`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
+-- Table `auaufollow`.`postagens`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `auaufollow`.`postagens` (
+  `idPostagem` INT(11) NOT NULL AUTO_INCREMENT,
+  `srcImage` VARCHAR(2000) NULL DEFAULT NULL,
+  `descricao` VARCHAR(2000) NULL DEFAULT NULL,
+  `qntCurtidas` INT(11) NULL DEFAULT NULL,
+  `fk_cliente` INT(11) NULL DEFAULT NULL,
+  PRIMARY KEY (`idPostagem`),
+  INDEX `fk_cliente` (`fk_cliente` ASC) VISIBLE,
+  CONSTRAINT `postagens_ibfk_1`
+    FOREIGN KEY (`fk_cliente`)
+    REFERENCES `auaufollow`.`clientes` (`idCliente`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 3
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
+-- Table `auaufollow`.`comentarios`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `auaufollow`.`comentarios` (
+  `idComentario` INT(11) NOT NULL AUTO_INCREMENT,
+  `mensagem` VARCHAR(900) NULL DEFAULT NULL,
+  `dataPostada` DATETIME NULL DEFAULT NULL,
+  `fk_postagem` INT(11) NULL DEFAULT NULL,
+  `fk_cliente` INT(11) NULL DEFAULT NULL,
+  PRIMARY KEY (`idComentario`),
+  INDEX `fk_cliente` (`fk_cliente` ASC) VISIBLE,
+  INDEX `fk_postagem` (`fk_postagem` ASC) VISIBLE,
+  CONSTRAINT `comentarios_ibfk_1`
+    FOREIGN KEY (`fk_cliente`)
+    REFERENCES `auaufollow`.`clientes` (`idCliente`),
+  CONSTRAINT `comentarios_ibfk_2`
+    FOREIGN KEY (`fk_postagem`)
+    REFERENCES `auaufollow`.`postagens` (`idPostagem`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 3
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
+-- Table `auaufollow`.`veterinarios`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `auaufollow`.`veterinarios` (
+  `idVeterinario` INT(11) NOT NULL AUTO_INCREMENT,
+  `nome` VARCHAR(100) NULL DEFAULT NULL,
+  `contato` VARCHAR(50) NULL DEFAULT NULL,
+  PRIMARY KEY (`idVeterinario`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 3
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
+-- Table `auaufollow`.`consultas`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `auaufollow`.`consultas` (
+  `idConsulta` INT(11) NOT NULL AUTO_INCREMENT,
+  `idVeterinario` INT(11) NULL DEFAULT NULL,
+  `idCachorro` INT(11) NULL DEFAULT NULL,
+  `dataConsulta` DATETIME NULL DEFAULT NULL,
+  `descricao` TEXT NULL DEFAULT NULL,
+  PRIMARY KEY (`idConsulta`),
+  INDEX `idVeterinario` (`idVeterinario` ASC) VISIBLE,
+  INDEX `idCachorro` (`idCachorro` ASC) VISIBLE,
+  CONSTRAINT `consultas_ibfk_1`
+    FOREIGN KEY (`idVeterinario`)
+    REFERENCES `auaufollow`.`veterinarios` (`idVeterinario`),
+  CONSTRAINT `consultas_ibfk_2`
+    FOREIGN KEY (`idCachorro`)
+    REFERENCES `auaufollow`.`cachorros` (`idCachorro`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 3
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
+-- Table `auaufollow`.`cuidadosespecificos`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `auaufollow`.`cuidadosespecificos` (
+  `idCuidado` INT(11) NOT NULL AUTO_INCREMENT,
+  `idRaca` INT(11) NULL DEFAULT NULL,
+  `tipoCuidado` VARCHAR(100) NULL DEFAULT NULL,
+  `descricao` TEXT NULL DEFAULT NULL,
+  PRIMARY KEY (`idCuidado`),
+  INDEX `idRaca` (`idRaca` ASC) VISIBLE,
+  CONSTRAINT `cuidadosespecificos_ibfk_1`
+    FOREIGN KEY (`idRaca`)
+    REFERENCES `auaufollow`.`racas` (`idRaca`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
+-- Table `auaufollow`.`imagensracas`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `auaufollow`.`imagensracas` (
+  `idImagem` INT(11) NOT NULL AUTO_INCREMENT,
+  `idRaca` INT(11) NULL DEFAULT NULL,
+  `srcImage` VARCHAR(2000) NULL DEFAULT NULL,
+  `descricao` VARCHAR(200) NULL DEFAULT NULL,
+  PRIMARY KEY (`idImagem`),
+  INDEX `idRaca` (`idRaca` ASC) VISIBLE,
+  CONSTRAINT `imagensracas_ibfk_1`
+    FOREIGN KEY (`idRaca`)
+    REFERENCES `auaufollow`.`racas` (`idRaca`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
+-- Table `auaufollow`.`login`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `auaufollow`.`login` (
+  `email` VARCHAR(100) NOT NULL,
+  `senha` VARCHAR(100) NULL DEFAULT NULL,
+  `fk_cliente` INT(11) NULL DEFAULT NULL,
+  PRIMARY KEY (`email`),
+  INDEX `fk_cliente` (`fk_cliente` ASC) VISIBLE,
+  CONSTRAINT `login_ibfk_1`
+    FOREIGN KEY (`fk_cliente`)
+    REFERENCES `auaufollow`.`clientes` (`idCliente`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
+-- Table `auaufollow`.`mensagens`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `auaufollow`.`mensagens` (
+  `idMensagem` INT(11) NOT NULL AUTO_INCREMENT,
+  `idRemetente` INT(11) NOT NULL,
+  `idDestinatario` INT(11) NOT NULL,
+  `conteudo` TEXT NOT NULL,
+  `dataEnvio` DATETIME NOT NULL,
+  PRIMARY KEY (`idMensagem`),
+  INDEX `idRemetente` (`idRemetente` ASC) VISIBLE,
+  INDEX `idDestinatario` (`idDestinatario` ASC) VISIBLE,
+  CONSTRAINT `mensagens_ibfk_1`
+    FOREIGN KEY (`idRemetente`)
+    REFERENCES `auaufollow`.`clientes` (`idCliente`),
+  CONSTRAINT `mensagens_ibfk_2`
+    FOREIGN KEY (`idDestinatario`)
+    REFERENCES `auaufollow`.`clientes` (`idCliente`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
+-- Table `auaufollow`.`misturasracas`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `auaufollow`.`misturasracas` (
+  `idMistura` INT(11) NOT NULL AUTO_INCREMENT,
+  `idCachorro` INT(11) NULL DEFAULT NULL,
+  `descricao` VARCHAR(200) NULL DEFAULT NULL,
+  PRIMARY KEY (`idMistura`),
+  INDEX `idCachorro` (`idCachorro` ASC) VISIBLE,
+  CONSTRAINT `misturasracas_ibfk_1`
+    FOREIGN KEY (`idCachorro`)
+    REFERENCES `auaufollow`.`cachorros` (`idCachorro`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
+-- Table `auaufollow`.`popularidaderacas`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `auaufollow`.`popularidaderacas` (
+  `idPopularidade` INT(11) NOT NULL AUTO_INCREMENT,
+  `idRaca` INT(11) NULL DEFAULT NULL,
+  `regiao` VARCHAR(100) NULL DEFAULT NULL,
+  `popularidade` INT(11) NULL DEFAULT NULL,
+  PRIMARY KEY (`idPopularidade`),
+  INDEX `idRaca` (`idRaca` ASC) VISIBLE,
+  CONSTRAINT `popularidaderacas_ibfk_1`
+    FOREIGN KEY (`idRaca`)
+    REFERENCES `auaufollow`.`racas` (`idRaca`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
+-- Table `auaufollow`.`produtos`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `auaufollow`.`produtos` (
+  `idProdutos` INT(11) NOT NULL AUTO_INCREMENT,
+  `nome` VARCHAR(50) NULL DEFAULT NULL,
+  `descricao` VARCHAR(1000) NULL DEFAULT NULL,
+  `preco` DECIMAL(10,2) NULL DEFAULT NULL,
+  `srcImage` VARCHAR(2000) NULL DEFAULT NULL,
+  `altImage` VARCHAR(2000) NULL DEFAULT NULL,
+  PRIMARY KEY (`idProdutos`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 3
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
+-- Table `auaufollow`.`produtoscategorias`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `auaufollow`.`produtoscategorias` (
+  `idProduto` INT(11) NOT NULL,
+  `idCategoria` INT(11) NOT NULL,
+  PRIMARY KEY (`idProduto`, `idCategoria`),
+  INDEX `idCategoria` (`idCategoria` ASC) VISIBLE,
+  CONSTRAINT `produtoscategorias_ibfk_1`
+    FOREIGN KEY (`idProduto`)
+    REFERENCES `auaufollow`.`produtos` (`idProdutos`),
+  CONSTRAINT `produtoscategorias_ibfk_2`
+    FOREIGN KEY (`idCategoria`)
+    REFERENCES `auaufollow`.`categoriasprodutos` (`idCategoria`))
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+
+
+-- INSERINDO DADOS
 
 
 -- Inserindo na tabela Produtos
-INSERT INTO Produtos (nome, descricao, preco, srcImage, altImage) VALUES
-('Ração Premium', 'Ração para cães adultos.', 75.50, '/images/racao1.png', 'Ração em pacote.'),
-('Brinquedo Bola', 'Bola resistente para cães.', 25.00, '/images/bola.png', 'Bola para cães.'),
-('Shampoo Canino', 'Shampoo para pelos brilhantes.', 35.90, '/images/shampoo.png', 'Frasco de shampoo.'),
-('Guia Retrátil', 'Guia de passeio com trava.', 50.00, '/images/guia.png', 'Guia retrátil para cães.'),
-('Casinha de Plástico', 'Casinha para cães pequenos.', 150.00, '/images/casinha.png', 'Casinha confortável.'),
-('Osso de Nylon', 'Brinquedo de mastigação durável.', 20.00, '/images/osso.png', 'Osso sintético para mastigar.'),
-('Coleira Antipulgas', 'Coleira eficaz contra pulgas e carrapatos.', 45.00, '/images/coleira.png', 'Coleira antipulgas.'),
-('Comedouro Inteligente', 'Comedouro com dispensador automático.', 120.00, '/images/comedouro.png', 'Comedouro automático.'),
-('Tapete Higiênico', 'Tapete descartável para cães.', 30.00, '/images/tapete.png', 'Tapete absorvente.'),
-('Cama Ortopédica', 'Cama confortável para cães idosos.', 200.00, '/images/cama.png', 'Cama macia para cães.');
+INSERT INTO `auaufollow`.`produtos` (`idProdutos`, `nome`, `descricao`, `preco`, `srcImage`, `altImage`) VALUES
+(1, 'Ração Premium', 'Ração para cães adultos.', 75.50, './assets/products/racao_premium.png', 'Ração em pacote.'),
+(2, 'Brinquedo Bola', 'Bola resistente para cães.', 25.00, './assets/products/brinquedo_bola.png', 'Bola para cães.'),
+(3, 'Shampoo Canino', 'Shampoo para pelos brilhantes.', 35.90, './assets/products/shampoo_canino.png', 'Frasco de shampoo.'),
+(4, 'Guia Retrátil', 'Guia de passeio com trava.', 50.00, './assets/products/guia_retratil.png', 'Guia retrátil para cães.'),
+(5, 'Casinha de Plástico', 'Casinha para cães pequenos.', 150.00, './assets/products/casinha_de_plastico.png', 'Casinha confortável.'),
+(6, 'Osso de Nylon', 'Brinquedo de mastigação durável.', 20.00, './assets/products/osso_de_nylon.png', 'Osso sintético para mastigar.'),
+(7, 'Coleira Antipulgas', 'Coleira eficaz contra pulgas e carrapatos.', 45.00, './assets/products/coleira_antipulgas.png', 'Coleira antipulgas.'),
+(8, 'Comedouro Inteligente', 'Comedouro com dispensador automático.', 120.00, './assets/products/comedouro_inteligente.png', 'Comedouro automático.'),
+(9, 'Tapete Higiênico', 'Tapete descartável para cães.', 30.00, './assets/products/tapete_higienico.png', 'Tapete absorvente.'),
+(10, 'Cama Ortopédica', 'Cama confortável para cães idosos.', 200.00, './assets/products/cama_ortopedica.png', 'Cama macia para cães.');
 
 -- Inserindo na tabela Clientes
-INSERT INTO Clientes (nome, idade) VALUES
-('João Silva', 30),
-('Maria Oliveira', 25),
-('Carlos Souza', 40),
-('Ana Lima', 28),
-('Fernanda Costa', 35),
-('Ricardo Pereira', 50),
-('Paula Santos', 22),
-('Lucas Almeida', 29),
-('Juliana Martins', 32),
-('Tiago Mendes', 45);
-
--- Inserindo na tabela Cachorros
-INSERT INTO Cachorros (nome, idade, raca, genero, fk_cliente) VALUES
-('Rex', 4, 'Labrador', 'Macho', 1),
-('Luna', 2, 'Poodle', 'Fêmea', 2),
-('Thor', 3, 'Golden Retriever', 'Macho', 3),
-('Bella', 5, 'Beagle', 'Fêmea', 4),
-('Max', 1, 'Bulldog', 'Macho', 5),
-('Sophie', 6, 'Shih Tzu', 'Fêmea', 6),
-('Buddy', 7, 'Pastor Alemão', 'Macho', 7),
-('Chloe', 2, 'Cocker Spaniel', 'Fêmea', 8),
-('Duke', 3, 'Husky Siberiano', 'Macho', 9),
-('Molly', 8, 'Buldogue Francês', 'Fêmea', 10);
-
--- Inserindo na tabela Postagens
-INSERT INTO Postagens (srcImage, descricao, qntCurtidas, fk_cliente) VALUES
-('/posts/post1.png', 'Dia de parque com o Rex!', 150, 1),
-('/posts/post2.png', 'Luna curtindo a praia.', 200, 2),
-('/posts/post3.png', 'Thor no seu primeiro passeio!', 180, 3),
-('/posts/post4.png', 'Bella aprendeu um novo truque.', 220, 4),
-('/posts/post5.png', 'Max brincando no quintal.', 90, 5),
-('/posts/post6.png', 'Sophie no veterinário.', 60, 6),
-('/posts/post7.png', 'Buddy correndo no parque.', 110, 7),
-('/posts/post8.png', 'Chloe e sua nova coleira.', 140, 8),
-('/posts/post9.png', 'Duke explorando a neve.', 300, 9),
-('/posts/post10.png', 'Molly relaxando na cama nova.', 75, 10);
-
--- Inserindo na tabela Comentarios
-INSERT INTO Comentarios (mensagem, dataPostada, fk_postagem, fk_cliente) VALUES
-('Que lindo dia no parque!', '2024-12-01 10:00:00', 1, 2),
-('Adorei a praia da Luna!', '2024-12-01 12:00:00', 2, 3),
-('Thor está crescendo rápido!', '2024-12-02 08:30:00', 3, 4),
-('Parabéns pelo novo truque, Bella!', '2024-12-02 15:45:00', 4, 5),
-('Max está tão fofo!', '2024-12-03 09:20:00', 5, 6),
-('Sophie parece muito saudável!', '2024-12-03 14:00:00', 6, 7),
-('Buddy adora correr!', '2024-12-04 10:30:00', 7, 8),
-('Chloe está linda com a nova coleira!', '2024-12-04 18:15:00', 8, 9),
-('Duke parece estar amando a neve.', '2024-12-05 07:50:00', 9, 10),
-('Molly está tão tranquila!', '2024-12-05 20:00:00', 10, 1);
-
--- Inserindo na tabela Carteirinha
-INSERT INTO Carteirinha (nomeVeterinario, vacinas, fk_cachorro) VALUES
-('Dr. José', 'Raiva, V8', 1),
-('Dra. Marina', 'V10, Gripe', 2),
-('Dr. Carlos', 'Raiva, V8', 3),
-('Dra. Ana', 'V10, Giardia', 4),
-('Dr. Paulo', 'Raiva, V8', 5),
-('Dra. Fernanda', 'V10, Leishmaniose', 6),
-('Dr. Ricardo', 'Raiva, V8', 7),
-('Dra. Juliana', 'V10, Gripe', 8),
-('Dr. Eduardo', 'Raiva, V8', 9),
-('Dra. Camila', 'V10, Giardia', 10);
-
+INSERT INTO `auaufollow`.`clientes` (`idCliente`, `nome`, `idade`)
+VALUES
+  (1, 'João Silva', 30),
+  (2, 'Maria Oliveira', 25),
+  (3, 'Pedro Santos', 40),
+  (4, 'Ana Martins', 35),
+  (5, 'Lucas Almeida', 28);
+  
 -- Inserindo na tabela Login
-INSERT INTO Login (email, senha, fk_cliente) VALUES
-('joao@example.com', 'senha123', 1),
-('maria@example.com', 'senha123', 2),
-('carlos@example.com', 'senha123', 3),
-('ana@example.com', 'senha123', 4),
-('fernanda@example.com', 'senha123', 5),
-('ricardo@example.com', 'senha123', 6),
-('paula@example.com', 'senha123', 7),
-('lucas@example.com', 'senha123', 8),
-('juliana@example.com', 'senha123', 9),
-('tiago@example.com', 'senha123', 10);
+INSERT INTO `auaufollow`.`login` (`email`, `senha`, `fk_cliente`)
+VALUES
+  ('joao.silva@gmail.com', 'senha123', 1),
+  ('maria.oliveira@hotmail.com', 'senha456', 2),
+  ('pedro.santos@outlook.com', 'senha789', 3),
+  ('ana.martins@yahoo.com', 'minhaSenha', 4),
+  ('lucas.almeida@gmail.com', 'senha2024', 5);
+
