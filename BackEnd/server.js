@@ -3,17 +3,21 @@ TODO --
 
 - Falta modularizar as querys do banco de dados 
 - services 
+- Criptografar as informações relevantes
+
 */
 
 const express = require("express");
 const { body, validationResult } = require('express-validator');
 const connection = require("./db");
 const path = require('path');
+const cors = require("cors")
 
 const app = express();
 
-// Middleware para o express entender o body
-app.use(express.json());
+// Middlewares
+app.use(express.json()); //  para o express entender o body
+app.use(cors()); // Para consertar questões de headers
 
 
 // Rotas
@@ -26,6 +30,8 @@ app.get("/babidi", (req, res) => {
     res.send("Babiididdiddiididid")
 })
 
+
+// -- Produtos
 
 // Criar produtos
 app.post("/produtos", [
@@ -159,6 +165,20 @@ app.delete("/produtos/:id", async (req, res) => {
         }
     } catch (error) {
         res.status(500).json({ message: 'Erro ao deletar produto', error: error.message });
+    }
+})
+
+
+// -- Clientes
+
+app.get("/clientes", async(req,res) => {
+    try {
+        const [results] = await connection.promise().query("select * from clientes c inner join login l on c.idCliente = l.fk_cliente;");
+
+        res.json(results);
+    } catch (error) {
+        console.log("Erro ao pegar clientes", error);
+        
     }
 })
 
