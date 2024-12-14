@@ -2,38 +2,55 @@ import { Component, input, Input } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { Cliente } from '../../interface/Icliente';
 import { ClientService } from '../../services/cliente.service';
-import { NgModel } from '@angular/forms';
+import { FormsModule, NgModel } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [RouterLink, CommonModule],
+  imports: [RouterLink, CommonModule, FormsModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
 export class LoginComponent {
-    @Input() localNome = "";
+    @Input() localEmail = "";
     @Input() localSenha = "";
 
     // --------------------------
     // CÓDIGO REUTILIZADO DO home.component.html
-    // Clientes!: Cliente[]
+    Clientes!: Cliente[]
+    router!: Router;
 
-    // constructor (private clienteService:ClientService) {}
+    constructor (private clienteService:ClientService, router: Router) {
+        this.router = router;
+    }
   
-    // ngOnInit(){
-    //   this.clienteService.getProducts().subscribe((clientes) => {
-    //     this.Clientes = clientes
-    //   })
-    // }
+    ngOnInit(){
+      this.clienteService.getClientes().subscribe((clientes) => {
+        this.Clientes = clientes
+      })
+    }
 
     // --------------------------
 
     login() {
-        console.log("Hola");
-        
-        alert("Login feito")
+        console.log(this.Clientes);
+
+        var naoTemLogin = true;
+
+        this.Clientes.forEach(cliente => {
+            
+            if (cliente.email == this.localEmail && cliente.senha == this.localSenha) {
+                alert("Login Realizado, seja bem vindo:"+ cliente.nome);
+                naoTemLogin = false;
+                this.router.navigate(['/adocao']);
+            }
+        });
+
+        if (naoTemLogin) {
+            alert("Login não encontrado")
+        }
     }
 
     

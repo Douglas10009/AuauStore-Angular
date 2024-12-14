@@ -102,6 +102,11 @@
     margin-left: 10px;
     font-size: 14px;
   }
+
+  .botao:disabled {
+    color: #333;
+    background-color: #7e737b;
+  }
   
   /* Estilização do link de recuperação de senha */
   .forgot {
