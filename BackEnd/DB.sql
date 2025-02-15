@@ -13,7 +13,7 @@
 
 
 
-DROP schema auaufollow;
+DROP schema if EXISTS auaufollow;
 
 -- MySQL Workbench Forward Engineering
 
