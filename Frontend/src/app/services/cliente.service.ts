@@ -7,7 +7,7 @@ import { Cliente } from '../interface/Icliente'
     providedIn: 'root',
 })
 export class ClientService {
-    apiUrl = 'http://localhost:3000/clientes'; //Ainda não existe 
+    apiUrl = 'http://localhost:3000/clientes'; 
 
     constructor(private http: HttpClient) {}
 
