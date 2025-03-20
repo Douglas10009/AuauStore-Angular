@@ -1,0 +1,35 @@
+<link href="https://fonts.googleapis.com/css?family=Rubik&display=swap" rel="stylesheet" />
+
+<main>
+    <section class="container">
+        <div class="login">
+            <h1>Entre em sua conta</h1>
+            <br />
+            <img src="./assets/Dog.jpg" alt="" />
+
+            <form (ngSubmit)="login()" #loginForm="ngForm">
+                <div class="form">
+                    <div class="form-row">
+                        <label for="input">Email</label>
+                        <input type="text" placeholder="Digite seu email" [(ngModel)]="localEmail"  name="email" required/>
+                    </div>
+
+                    <div class="form-row">
+                        <label for="input">Senha</label>
+                        <input type="text" placeholder="Digite sua senha" [(ngModel)]="localSenha" name="senha" required/>
+                    </div>
+
+                    <div class="form-row bottom">
+                        <a routerLink="/recuperar-senha" class="forgot" >Esqueceu sua senha?</a>
+                    </div>
+                    <div class="form-row bottom">
+                        <a routerLink="/cadastro" class="forgot">Não tem conta? cadastre-se aqui</a>
+                    </div>
+                    <div class="form-row button-login">
+                        <button class="botao" type="submit" [disabled]="!loginForm.valid">Entrar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+</main>

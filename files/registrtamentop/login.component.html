@@ -1,0 +1,75 @@
+<main class="main-login">
+    <!-- Seção da esquerda com imagem e texto -->
+    <section class="left-section">
+      <div class="hero-content">
+        <h1>Cuide do seu amigo!</h1>
+        <p>
+          Dê um lar para um cão que precisa! Nossos pets para adoção já vacinados,
+          castrados e prontos para uma nova família.
+        </p>
+      </div>
+    </section>
+  
+    <!-- Seção da direita com formulário -->
+    <section class="right-section">
+      <div class="login-container">
+        <h2>Crie a sua conta agora</h2>
+  
+        <form (ngSubmit)="login()" #loginForm="ngForm">
+          <!-- Nome -->
+          <div class="form-row">
+            <label for="nome">Your Name</label>
+            <input
+              type="text"
+              id="nome"
+              placeholder="Digite seu nome"
+              [(ngModel)]="localNome"
+              name="nome"
+              required
+            />
+          </div>
+  
+          <!-- Email -->
+          <div class="form-row">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              placeholder="exemplo@mail.com"
+              [(ngModel)]="localEmail"
+              name="email"
+              required
+            />
+          </div>
+  
+          <!-- Senha -->
+          <div class="form-row">
+            <label for="senha">Senha</label>
+            <input
+              type="password"
+              id="senha"
+              placeholder="Digite sua senha"
+              [(ngModel)]="localSenha"
+              name="senha"
+              required
+            />
+          </div>
+  
+          <!-- Botão -->
+          <div class="form-row button-login">
+            <button class="botao" type="submit" [disabled]="!loginForm.valid">
+              Continuar
+            </button>
+          </div>
+  
+          <!-- Link para login (caso seja um fluxo de cadastro) -->
+          <div class="form-row bottom">
+            <a routerLink="/login" class="forgot">
+              Já tem uma conta? Entre agora
+            </a>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+  
