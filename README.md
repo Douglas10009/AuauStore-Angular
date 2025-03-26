@@ -13,6 +13,8 @@ Para executar este projeto localmente, você precisará ter as seguintes ferrame
 - **Node.js** e **npm** (ou **yarn**): Para gerenciar dependências e executar scripts.
 - **Angular CLI** (se este for um projeto Angular): Para rodar e compilar o projeto.
 - **Um servidor local** (como o Live Server ou o `ng serve`) para hospedar o projeto durante o desenvolvimento.
+- npm install concurrently --save-dev
+
 
 ## Como Rodar o Projeto
 1. Clone este repositório:
@@ -29,7 +31,7 @@ Para executar este projeto localmente, você precisará ter as seguintes ferrame
    ```
 4. Inicie o servidor local:
    ```bash
-   ng serve
+   npm start
    ```
 5. Acesse a aplicação em seu navegador no endereço: `http://localhost:4200`.
 
