@@ -1,0 +1,76 @@
+<main class="main-register">
+    <!-- Seção da esquerda com imagem e texto -->
+    <section class="left-section">
+      <div class="hero-content">
+        <h1><strong>Auau</strong>follow</h1>
+        <h2>Cuide do seu amigo!</h2>
+        <p>
+          Dê um lar para um cão que precisa! Nossos pets para adoção já vacinados,
+          castrados e prontos para uma nova família.
+        </p>
+      </div>
+    </section>
+  
+    <!-- Seção da direita com formulário -->
+    <section class="right-section">
+      <div class="register-container">
+        <h3>VAMOS COMEÇAR</h3>
+        <h2>Crie a sua conta agora</h2>
+  
+        <form (ngSubmit)="cadastrar()" #registerForm="ngForm">
+          <!-- Nome -->
+          <div class="form-group">
+            <label for="nome">Your Name</label>
+            <input
+              type="text"
+              id="nome"
+              placeholder="Digite seu nome"
+              [(ngModel)]="localNome"
+              name="nome"
+              required
+            />
+          </div>
+  
+          <!-- Email -->
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              placeholder="exemplo@mail.com"
+              [(ngModel)]="localEmail"
+              name="email"
+              required
+            />
+          </div>
+  
+          <!-- Senha -->
+          <div class="form-group">
+            <label for="senha">Password</label>
+            <input
+              type="password"
+              id="senha"
+              placeholder="Digite sua senha"
+              [(ngModel)]="localSenha"
+              name="senha"
+              required
+            />
+          </div>
+  
+          <!-- Botão de continuar -->
+          <button
+            class="botao"
+            type="submit"
+            [disabled]="!registerForm.valid"
+          >
+            Continuar
+          </button>
+  
+          <!-- Link para fazer login caso já tenha conta -->
+          <p class="tem-conta">
+            Já tem uma conta? <a routerLink="/login">Entre agora</a>
+          </p>
+        </form>
+      </div>
+    </section>
+  </main>
