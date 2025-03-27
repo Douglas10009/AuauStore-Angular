@@ -20,6 +20,7 @@ export class CadastroComponent {
 
   cadastrar() {
     // Colocar o service para adicionar ao banco de dados
+    
     alert(`Conta criada com sucesso para ${this.localNome} (${this.localEmail})!`);
     this.router.navigate(['/login']);
   }
