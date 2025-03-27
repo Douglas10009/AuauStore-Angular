@@ -5,6 +5,8 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { LoginComponent } from './pages/login/login.component';
 import { CadastroComponent } from './pages/cadastro/cadastro.component';
 import { SocialMediasComponent } from './pages/social-medias/social-medias.component';
+import { CemiterioComponent } from './pages/cemiterio/cemiterio.component';
+import { CarteirinhaComponent } from './pages/carteirinha/carteirinha.component';
 
 export const routes: Routes = [
   {
@@ -26,6 +28,14 @@ export const routes: Routes = [
   {
     path: 'redes-sociais',
     component: SocialMediasComponent
+  },
+  {
+    path: 'cemiterio',
+    component: CemiterioComponent
+  },
+  {
+    path: 'carteirinha',
+    component: CarteirinhaComponent
   },
   {
     path: '**',

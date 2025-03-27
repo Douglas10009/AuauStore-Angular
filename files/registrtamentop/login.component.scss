@@ -18,26 +18,16 @@
 /* Seção da esquerda (imagem de fundo) */
 .left-section {
   flex: 1;
-  background: url('./../../../assets/dog-background.jpg.png') no-repeat top center;
+  background: url('./assets/Dog.jpg') no-repeat center center;
   background-size: cover;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  
-//   &::after {
-//     content: "";
-//     position: absolute;
-//     top: 0;
-//     left: 0;
-//     width: 100%;
-//     height: 100%;
-//     background: rgba(0, 0, 0, 0.5); // Camada preta com 50% de opacidade
-//   }
 }
 
 .left-section .hero-content {
-  color: #ffffff;
+  color: #fff;
   text-align: center;
   max-width: 400px;
   padding: 20px;

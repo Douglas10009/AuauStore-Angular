@@ -13,9 +13,21 @@
     <!-- Seção da direita com formulário -->
     <section class="right-section">
       <div class="login-container">
-        <h2>Seja Bem Vindo!</h2>
+        <h2>Crie a sua conta agora</h2>
   
         <form (ngSubmit)="login()" #loginForm="ngForm">
+          <!-- Nome -->
+          <div class="form-row">
+            <label for="nome">Your Name</label>
+            <input
+              type="text"
+              id="nome"
+              placeholder="Digite seu nome"
+              [(ngModel)]="localNome"
+              name="nome"
+              required
+            />
+          </div>
   
           <!-- Email -->
           <div class="form-row">
@@ -52,11 +64,12 @@
   
           <!-- Link para login (caso seja um fluxo de cadastro) -->
           <div class="form-row bottom">
-            <a routerLink="/cadastro" class="forgot">
-              Não tem conta? Crie agora!
+            <a routerLink="/login" class="forgot">
+              Já tem uma conta? Entre agora
             </a>
           </div>
         </form>
       </div>
     </section>
   </main>
+  

@@ -1,0 +1,79 @@
+/* Container geral */
+.carteira-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #ffffff; /* Fundo roxinho claro */
+    padding: 16px;
+    border-radius: 8px;
+    text-align: center;
+  }
+  
+  /* Título principal */
+  .carteira-container h1 {
+    font-size: 2rem;
+    margin-bottom: 24px;
+  }
+  
+  /* Container que envolve a tabela e o bloco de informações */
+  .card-content {
+    display: flex;
+    flex-wrap: wrap; /* Caso a tela seja pequena, vai quebrar linha */
+    gap: 24px;
+    justify-content: center;
+  }
+  
+  /* Bloco da tabela */
+  .controle {
+    background-color: #f4eafb;
+    padding: 16px;
+    border-radius: 8px;
+    flex: 1 1 300px; /* cresce e encolhe conforme espaço */
+    min-width: 280px;
+  }
+  
+  /* Título do bloco de controle */
+  .controle h2 {
+    margin-bottom: 16px;
+  }
+  
+  /* Tabela de vermifugação */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 auto;
+  }
+  
+  table th,
+  table td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: center;
+  }
+  
+  /* Bloco da carteira (foto + dados) */
+  .carteira {
+    background-color: #f4eafb;
+    padding: 16px;
+    border-radius: 8px;
+    flex: 1 1 300px;
+    min-width: 280px;
+  }
+  
+  /* Imagem do animal */
+  .carteira img {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 8px;
+    margin-bottom: 16px;
+  }
+  
+  /* Informações do animal */
+  .info {
+    text-align: left;
+  }
+  
+  .info h3 {
+    text-align: center;
+    margin-bottom: 16px;
+  }
+  
