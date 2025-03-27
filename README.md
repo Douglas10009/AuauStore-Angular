@@ -29,7 +29,7 @@ Para executar este projeto localmente, você precisará ter as seguintes ferrame
    npm install
    ```
 
-4. adicione as credenciais no .env, tem um exemplo do .env.example
+4. adicione as credenciais no .env, tem um exemplo do .env.example (/BackEnd)
 
 5. inicialize o servidor mysql localmente (/BackEnd/DB.msql tem o arquivo para você rodar no seu MySql Shell)
 
