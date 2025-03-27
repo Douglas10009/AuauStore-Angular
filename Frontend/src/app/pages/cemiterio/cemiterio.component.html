@@ -1,0 +1,46 @@
+<app-header />
+
+<div class="container">
+  <h1 class="title">
+    Auau<span class="highlight">follow</span>
+  </h1>
+  <p class="subtitle">A melhor última homenagem ao seu amigo!</p>
+
+  <!-- Seção de placeholders (por exemplo, imagens ou banners) -->
+  <div class="grid grid-cols-2 gap-6 max-w-4xl" id="main">
+    <div class="placeholder" id="img1"></div>
+    <!-- <div class="placeholder" id="img2"></div> -->
+  </div>
+
+  <!-- Planos -->
+  <h2 class="section-title">Veja nossos planos</h2>
+  <div class="grid grid-cols-3 gap-6">
+    <div class="card" *ngFor="let plano of planos">
+      <div class="card-content">
+        <h3 class="card-title">Plano {{ plano.nome }}</h3>
+        <p class="card-price">${{ plano.preco }} p/mês</p>
+        <ul class="card-list">
+          <li>✔ {{ plano.descontoVacinas }}% de desconto em vacinas</li>
+          <li>✔ {{ plano.descontoAdocao }}% de desconto na taxa de adoção</li>
+          <li>✔ {{ plano.descontoSepultamento }}% de desconto no sepultamento</li>
+          <li>✔ {{ plano.banhoTosa }} banho(s) e tosa/mês</li>
+        </ul>
+        <button class="btn-assinar">Assinar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contato -->
+  <div class="contact-section">
+    <div class="contact-placeholder" id="form"></div>
+    <div class="contact-form">
+      <h2>Fale agora <i>conosco</i></h2>
+      <input type="text" placeholder="Nome" class="input" />
+      <input type="email" placeholder="Email" class="input" />
+      <textarea placeholder="Sua mensagem..." rows="3" class="textarea"></textarea>
+      <button class="btn-enviar">Enviar</button>
+    </div>
+  </div>
+</div>
+
+<app-footer />
