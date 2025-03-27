@@ -5,7 +5,6 @@ Bem-vindo ao repositório do **AuauStore**, um projeto web criado para oferecer 
 ## Visão Geral
 O AuauStore é uma aplicação web projetada para facilitar o acesso a produtos, serviços e informações relacionados ao cuidado de pets. Este repositório contém os arquivos principais do frontend, incluindo a base do projeto HTML e os recursos iniciais.
 
-## Estrutura do Projeto
 
 ## Pré-requisitos
 Para executar este projeto localmente, você precisará ter as seguintes ferramentas instaladas:
@@ -13,7 +12,7 @@ Para executar este projeto localmente, você precisará ter as seguintes ferrame
 - **Node.js** e **npm** (ou **yarn**): Para gerenciar dependências e executar scripts.
 - **Angular CLI** (se este for um projeto Angular): Para rodar e compilar o projeto.
 - **Um servidor local** (como o Live Server ou o `ng serve`) para hospedar o projeto durante o desenvolvimento.
-- npm install concurrently --save-dev
+- ```npm install concurrently --save-dev```
 
 
 ## Como Rodar o Projeto
@@ -29,7 +28,12 @@ Para executar este projeto localmente, você precisará ter as seguintes ferrame
    ```bash
    npm install
    ```
-4. Inicie o servidor local:
+
+4. adicione as credenciais no .env, tem um exemplo do .env.example
+
+5. inicialize o servidor mysql localmente (/BackEnd/DB.msql tem o arquivo para você rodar no seu MySql Shell)
+
+6. Inicie os servidores locais:
    ```bash
    npm start
    ```
