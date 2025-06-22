@@ -1,0 +1,8 @@
+{
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  },
+  "scripts": {
+    "start": "concurrently \"cd Frontend && ng serve\" \"cd BackEnd && npm start\""
+  }
+}

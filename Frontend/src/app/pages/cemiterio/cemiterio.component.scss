@@ -1,0 +1,141 @@
+.container {
+  padding: 16px;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #064e3b;
+  margin-bottom: 8px;
+}
+
+.highlight {
+  font-weight: 900;
+}
+
+.subtitle {
+  font-size: 1.125rem;
+  color: #4b5563;
+  margin-bottom: 24px;
+  font-style: italic;
+}
+
+/* Placeholders */
+.placeholder {
+  // background-color: #e5e7eb;
+  height: 160px;
+  border-radius: 8px;
+}
+
+#img1 {
+  background-image: url("../../../assets/campo.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+}
+
+#form {
+  background-image: url("../../../assets/formDog.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: bottom;
+}
+
+/* Seção de planos */
+.section-title {
+  font-size: 2rem;
+  color: #064e3b;
+  margin: 32px 0 16px;
+}
+
+.card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.card-price {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #065f46;
+  margin-bottom: 8px;
+}
+
+.card-list {
+  list-style: none;
+  padding: 0;
+  text-align: left;
+  font-size: 0.875rem;
+  color: #374151;
+  margin-bottom: 12px;
+}
+
+.btn-assinar {
+  background-color: #065f46;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+}
+
+/* Seção de contato */
+.contact-section {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  margin-top: 40px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.contact-placeholder {
+  width: 250px;
+  height: 160px;
+  background-color: #d1d5db;
+  border-radius: 8px;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-width: 300px;
+  text-align: left;
+}
+
+.contact-form h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #064e3b;
+  margin-bottom: 8px;
+}
+
+.input,
+.textarea {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.btn-enviar {
+  background-color: #065f46;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 8px;
+}

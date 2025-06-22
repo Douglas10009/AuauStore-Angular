@@ -1,0 +1,54 @@
+<app-header/>
+
+
+<div class="carteira-container">
+    <h1>Carteira de vacinação</h1>
+  
+    <div class="card-content">
+      <!-- Esquerda: Controle de vermifugação -->
+      <div class="controle">
+        <h2>CONTROLE DE VERMIFUGAÇÃO</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Data</th>
+              <th>Vermífugo</th>
+              <th>Peso</th>
+              <th>Reforço</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Gera as linhas dinamicamente, ou use linhas fixas se preferir -->
+            <tr *ngFor="let _ of rows">
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+  
+      <!-- Direita: Foto + Dados do animal -->
+      <div class="carteira">
+        <!-- Substitua o src pela imagem que quiser -->
+        <img src="../../../assets/cao-obeso.png" alt="Foto do animal" />
+        <div class="info">
+          <h3>CARTERIA DE VACINAÇÃO</h3>
+          <p><strong>Nome:</strong> ____________________________</p>
+          <p><strong>Espécie:</strong> Canina</p>
+          <p><strong>Raça:</strong> ___________________________</p>
+          <p><strong>Sexo:</strong> Macho / Fêmea</p>
+          <p><strong>Data de Nascimento:</strong> ____ / ____ / ______</p>
+          <p><strong>Pelagem:</strong> __________________________</p>
+          <p><strong>Tutor:</strong> _____________________________</p>
+          <p><strong>Endereço:</strong> __________________________</p>
+          <p><strong>Cidade/UF:</strong> _________________________</p>
+          <p><strong>DDD/Telefone:</strong> (___) ____________</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+<app-footer />
